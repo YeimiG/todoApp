@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # 1. Servicio de Base de Datos (PostgreSQL)
+  db:
+    image: postgres:15-alpine # Imagen ligera y estable
+    container_name: todo_db
+    environment:
+      # Variables de entorno para inicializar la DB
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tododb
+    ports:
+      - "5432:5432" # Mapear puerto para acceso externo/debugging (opcional)
+    volumes:
+      # Configuración de Volumen Persistente (Requisito del Lab)
+      - postgres_data:/var/lib/postgresql/data 
+    healthcheck:
+      # Healthcheck para asegurar que la DB esté lista antes que el Backend
+      test: [ "CMD-SHELL", "pg_isready -U user -d tododb" ] 
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Servicio de Backend (Node.js/Express)
+  backend:
+    build: ./backend # Construye la imagen usando el Dockerfile en './backend'
+    container_name: todo_backend
+    ports:
+      - "3000:3000" # Puerto para el tráfico interno de la red Docker
+    environment:
+      # Variables de entorno para que el Backend se conecte a la DB
+      # IMPORTANTE: Usamos el nombre del servicio ('db') como HOST.
+      DB_HOST: db 
+      DB_USER: user
+      DB_PASSWORD: password
+      DB_NAME: tododb
+      DB_PORT: 5432
+    depends_on:
+      db:
+        condition: service_healthy # Espera a que el healthcheck de 'db' pase
+
+  # 3. Servicio de Frontend (Nginx)
+  frontend:
+    build: ./frontend # Construye la imagen usando el Dockerfile en './frontend'
+    container_name: todo_frontend
+    ports:
+      # Mapeo de puertos para el usuario. Acceso desde el navegador en http://localhost:8080
+      - "8080:80" 
+    depends_on:
+      - backend # Asegura que el Frontend inicie después de que el Backend esté intentando levantar
+
+# 4. Definición de Volúmenes (Requisito de Persistencia)
+volumes:
+  postgres_data:
+    driver: local # Volumen local para persistencia de datos de PostgreSQL
