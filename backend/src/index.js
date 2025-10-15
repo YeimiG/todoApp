@@ -44,11 +44,11 @@ app.get('/tasks', async (req, res) => {
 // POST /tasks: Crea una nueva tarea
 app.post('/tasks', async (req, res) => {
     const { title } = req.body;
-    
+
     if (!title) {
         return res.status(400).send("El campo 'title' es requerido.");
     }
-    
+
     try {
         const query = 'INSERT INTO tasks (title) VALUES ($1) RETURNING *';
         const result = await pool.query(query, [title]);
@@ -90,15 +90,16 @@ app.delete('/tasks/:id', async (req, res) => {
     } catch (err) {
         res.status(500).send("Error al eliminar la tarea.");
     }
-}); 
+});
 
 const PORT = 3000;
 
 async function startServer() {
     await createTable(); // Asegura que la tabla exista al iniciar
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
         console.log(`Backend Server running on port ${PORT}`);
     });
 }
 
 startServer();
+
