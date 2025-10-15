@@ -1,3 +1,4 @@
+
 /* Fondo general */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,111 +13,137 @@ body {
 /* Caja central */
 .container {
     background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    width: 400px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px 40p;
+/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff5f6d, #ffc371); /* degradado vibrante */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    background: #1e1e2f; /* fondo oscuro elegante */
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    margin-top: 50px;
+    width: 380px;
+    border: 2px solid #ff6f61;
 }
 
 /* Título */
 h1 {
     text-align: center;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* Formulario de tarea */
-form {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-input {
-    flex: 1;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    transition: border 0.3s;
-}
-
-input:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-/* Botón agregar */
-button {
-    padding: 10px 18px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 8px;
-    background-color: #007bff;
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+    color: #ffea00; /* amarillo llamativo */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    text-shadow: 2px 2px 4px #ff3b2f;
 }
 
 /* Lista de tareas */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-li {
+/* Cada tarea */
+.task {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
     padding: 12px 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-    transition: background 0.3s, transform 0.2s;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-li:hover {
-    background-color: #f1f1f1;
-    transform: translateY(-1px);
+.task:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
-/* Tareas completadas */
-li.completed span {
+.task.completed {
+    background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
     text-decoration: line-through;
-    color: #888;
+    color: #0d47a1;
 }
 
-/* Botones internos */
-li button.toggle-btn {
-    background-color: #28a745;
-    margin-right: 10px;
-    padding: 6px 12px;
+/* Botones */
+button {
+    border: none;
+    padding: 8px 14px;
+>>>>>>> a74d3f7 (Mejoras en frontend: colores llamativos y diseño profesional)
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
-li button.toggle-btn:hover {
-    background-color: #1e7e34;
+/* Botón agregar */
+#addBtn {
+    background: linear-gradient(120deg, #ff6f61, #ff3b2f);
+    width: 100%;
+    margin-top: 15px;
+    font-size: 1.1em;
 }
 
-li button.delete-btn {
-    background-color: #dc3545;
-    padding: 6px 12px;
+#addBtn:hover {
+    background: linear-gradient(120deg, #ff3b2f, #ff6f61);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
 }
 
-li button.delete-btn:hover {
-    background-color: #a71d2a;
+/* Botón completar */
+.complete-btn {
+    background: linear-gradient(120deg, #4caf50, #81c784);
 }
 
-/* Texto de tarea */
-li span {
-    flex: 1;
-    font-size: 16px;
+.complete-btn:hover {
+    background: linear-gradient(120deg, #388e3c, #66bb6a);
+    transform: scale(1.1);
 }
 
+/* Botón eliminar */
+.delete-btn {
+    background: linear-gradient(120deg, #f44336, #e57373);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(120deg, #d32f2f, #ef5350);
+    transform: scale(1.1);
+}
+
+/* Input de tarea */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: 2px solid #ffea00;
+    margin-bottom: 10px;
+    font-size: 1em;
+    background: #2e2e3f;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Animaciones suaves */
+.task, button, input {
+    transition: all 0.3s ease;
+}
+
+/* Iconos opcionales */
+button i {
+    margin-right: 5px;
+}
+ 
