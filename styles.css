@@ -1,23 +1,32 @@
+/* Fondo general */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ece9e6, #ffffff);
     display: flex;
     justify-content: center;
-    padding-top: 50px;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Caja central */
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 350px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Título */
 h1 {
     text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
 }
 
+/* Formulario de tarea */
 form {
     display: flex;
     margin-bottom: 20px;
@@ -25,46 +34,71 @@ form {
 
 input {
     flex: 1;
-    padding: 8px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border 0.3s;
 }
 
+input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Botón agregar */
 button {
-    padding: 8px 12px;
-    margin-left: 5px;
+    padding: 10px 18px;
+    margin-left: 10px;
     border: none;
+    border-radius: 8px;
     background-color: #007bff;
-    color: white;
-    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
+/* Lista de tareas */
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px solid #eee;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    transition: background 0.3s, transform 0.2s;
 }
 
+li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-1px);
+}
+
+/* Tareas completadas */
 li.completed span {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
 }
 
+/* Botones internos */
 li button.toggle-btn {
     background-color: #28a745;
-    margin-right: 5px;
+    margin-right: 10px;
+    padding: 6px 12px;
 }
 
 li button.toggle-btn:hover {
@@ -73,8 +107,16 @@ li button.toggle-btn:hover {
 
 li button.delete-btn {
     background-color: #dc3545;
+    padding: 6px 12px;
 }
 
 li button.delete-btn:hover {
     background-color: #a71d2a;
 }
+
+/* Texto de tarea */
+li span {
+    flex: 1;
+    font-size: 16px;
+}
+
