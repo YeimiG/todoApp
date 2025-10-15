@@ -1,91 +1,89 @@
-/* styles.css - Diseño moderno tipo Todo App */
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Body */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f0f4ff, #dfe9f3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
+/* Contenedor principal */
 .container {
-  background: white;
-  width: 400px;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+/* Título */
 h1 {
-  text-align: center;
-  color: #2d3a8c;
-  margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #0077cc;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ccd3eb;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-}
-
-input[type="text"]:focus {
-  border-color: #2d3a8c;
-  box-shadow: 0 0 4px #b3c2ff;
-}
-
-button {
-  background: #2d3a8c;
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s ease;
-}
-
-button:hover {
-  background: #3c4db7;
-}
-
+/* Lista de tareas */
 ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 1.5rem;
+    list-style: none;
 }
 
 li {
-  background: #f6f8ff;
-  padding: 0.8rem;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    background-color: #f0f2f5;
+    transition: all 0.2s ease;
 }
 
 li.completed {
-  text-decoration: line-through;
-  color: #a0a0a0;
-  background: #e9ecf8;
+    text-decoration: line-through;
+    opacity: 0.6;
 }
 
-.delete-btn {
-  background: transparent;
-  border: none;
-  color: #ff5a5a;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
+/* Botones */
+button {
+    padding: 0.3rem 0.6rem;
+    background-color: #ff4d4f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.delete-btn:hover {
-  color: #d93030;
+button:hover {
+    background-color: #d9363e;
+}
+
+/* Input y agregar */
+input[type="text"] {
+    width: 80%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 0.5rem;
+}
+
+.add-btn {
+    background-color: #0077cc;
+}
+
+.add-btn:hover {
+    background-color: #005fa3;
 }
 

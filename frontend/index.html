@@ -9,14 +9,20 @@
 <body>
   <div class="container">
     <h1>Mi Lista de Tareas</h1>
-    <div class="input-group">
-      <input type="text" id="taskInput" placeholder="Escribe una tarea...">
-      <button id="addBtn">Agregar</button>
-    </div>
-    <ul id="taskList"></ul>
+
+    <!-- Formulario para agregar tareas -->
+    <form id="task-form" class="input-group">
+      <input type="text" id="task-input" placeholder="Escribe una tarea...">
+      <button type="submit">Agregar</button>
+    </form>
+
+    <p id="loading-message" style="display:none;">Cargando...</p>
+
+    <!-- Lista de tareas -->
+    <ul id="task-list"></ul>
   </div>
+
   <script src="main.js"></script>
 </body>
 </html>
-
 
