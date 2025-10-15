@@ -6,21 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('task-input');
     const loadingMessage = document.getElementById('loading-message');
 
-    // Función para renderizar la lista de tareas
+    // Renderiza la lista de tareas
     function renderTasks(tasks) {
         taskList.innerHTML = '';
         if (tasks.length === 0) {
             taskList.innerHTML = '<p>No hay tareas pendientes.</p>';
+            return;
         }
 
         tasks.forEach(task => {
             const li = document.createElement('li');
             li.className = task.completed ? 'completed' : '';
             li.dataset.id = task.id;
-            
+
             li.innerHTML = `
                 <span>${task.title}</span>
-                <button class="toggle-btn" data-completed="${task.completed ? 'false' : 'true'}">
+                <button class="toggle-btn" data-completed="${!task.completed}">
                     ${task.completed ? 'Deshacer' : 'Completar'}
                 </button>
                 <button class="delete-btn">Eliminar</button>
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para obtener tareas de la API
+    // Obtiene tareas desde el backend
     async function fetchTasks() {
         loadingMessage.style.display = 'block';
         try {
@@ -44,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Manejador para agregar nuevas tareas
+    // Agregar nueva tarea
     taskForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const title = taskInput.value.trim();
@@ -56,37 +57,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title })
             });
-            taskInput.value = ''; // Limpiar input
-            fetchTasks(); // Recargar lista
+            taskInput.value = '';
+            fetchTasks();
         } catch (error) {
             console.error('Error al agregar tarea:', error);
         }
     });
 
-    // Manejador para Completar/Eliminar
+    // Completar o eliminar tarea
     taskList.addEventListener('click', async (e) => {
         const li = e.target.closest('li');
         if (!li) return;
         const taskId = li.dataset.id;
-        
+
+        // Completar/deshacer tarea
         if (e.target.classList.contains('toggle-btn')) {
             const completed = e.target.dataset.completed === 'true';
             try {
                 await fetch(`${API_URL}/${taskId}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ completed: completed })
+                    body: JSON.stringify({ completed })
                 });
                 fetchTasks();
             } catch (error) {
                 console.error('Error al actualizar tarea:', error);
             }
+
+        // Eliminar tarea
         } else if (e.target.classList.contains('delete-btn')) {
             if (confirm('¿Estás seguro de que quieres eliminar esta tarea?')) {
                 try {
-                    await fetch(`${API_URL}/${taskId}`, {
-                        method: 'DELETE'
-                    });
+                    await fetch(`${API_URL}/${taskId}`, { method: 'DELETE' });
                     fetchTasks();
                 } catch (error) {
                     console.error('Error al eliminar tarea:', error);
@@ -98,3 +100,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar tareas al iniciar
     fetchTasks();
 });
+
