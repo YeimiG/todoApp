@@ -1,4 +1,5 @@
-# TodoApp ✅
+
+# TodoApp 
 
 Aplicación para gestionar tareas (To-Do List), desarrollada como práctica de control de versiones con **Git, GitHub y WSL**.
 
@@ -15,7 +16,7 @@ El objetivo es aprender a:
 
 ---
 
-## 🛠️Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **HTML / CSS / JavaScript**
 - **Node.js / Express** (si aplica)
@@ -30,8 +31,6 @@ El objetivo es aprender a:
 - Marcar como completadas
 - Editar o eliminar
 
-
----
 
 ##  Flujo de Trabajo con Git
 
@@ -50,3 +49,7 @@ git push origin feature/frontend
 # TodoApp
 
 Aplicación para gestionar tareas en desarrollo con Git, GitHub y WSL.
+
+# todoApp
+Mi aplicación de lista de tareas.
+
