@@ -2,23 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO App con Docker Compose</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <title>TODO App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Gestión de Tareas</h1>
     <div id="app">
-        <form id="task-form">
-            <input type="text" id="task-input" placeholder="Nueva tarea..." required>
-            <button type="submit">Agregar</button>
-        </form>
-
-        <ul id="task-list">
-            </ul>
-        <p id="loading-message">Cargando tareas...</p>
+        <h1>Mis Tareas</h1>
+        <input type="text" id="new-task" placeholder="Agregar nueva tarea">
+        <button onclick="addTask()">Agregar</button>
+        <ul id="task-list"></ul>
     </div>
-    
     <script src="main.js"></script>
 </body>
 </html>
+
