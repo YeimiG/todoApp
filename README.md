@@ -55,6 +55,8 @@ Funcionalidades
 
 -Persistencia: Las tareas se guardan y se mantienen entre reinicios.
 
+```bash
+
 Flujo de Trabajo con Git
 
 Crear una rama para mejoras de frontend:
@@ -69,11 +71,12 @@ git commit -m "Mejora en estilos del frontend"
 Subir la rama al repositorio remoto: 
 git push origin feature/frontend 
 
+```
 Una vez revisada y aprobada, se puede fusionar con main.
 
 Pruebas y Validación
-
 Estado de los servicios: Verificar que todo_frontend, todo_backend y todo_db estén en estado Up.
+
 
 Pruebas de CRUD:
 
@@ -84,6 +87,7 @@ Pruebas de CRUD:
 -Completar una tarea: El estado cambia visualmente (tachado o cambio de color).
 
 -Eliminar una tarea: Se solicita confirmación y luego se elimina. 
+
 
 Diseño y Estilo
 
